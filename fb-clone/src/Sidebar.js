@@ -10,7 +10,7 @@ import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
 
 function Siderbar() {
   return (
-    <div className="siderbar">
+    <div className="sidebar">
       <SiderbarRow src="./images/profile_pic.jpeg" title="TiffanyY" />
       <SiderbarRow Icon={EmojiFlagsIcon} title="Pages" />
       <SiderbarRow Icon={PeopleIcon} title="Friends" />

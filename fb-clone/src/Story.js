@@ -5,7 +5,8 @@ import "./Story.css";
 function Story({ image, profileSrc, title }) {
   return (
     <div style={{ backgroundImage: `url(${image})` }} className="story">
-      <Avatar src={profileSrc} />
+      <Avatar src={profileSrc} className="avatar" />
+      <h4>{title}</h4>
     </div>
   );
 }

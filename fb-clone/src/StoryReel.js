@@ -4,12 +4,14 @@ import Story from "./Story";
 
 function StoryReel() {
   return (
-    <div className="storyreel">
+    <div className="storyReel">
       <Story
         image="./images/profile_pic.jpeg"
         profileSrc="/images/ai.jpg"
         title="Tiffany Y"
       />
+      <Story image="" profileSrc="" title="Tiffany Y" />
+      <Story image="" profileSrc="" title="Tiffany Y" />
       <Story image="" profileSrc="" title="Tiffany Y" />
       <Story image="" profileSrc="" title="Tiffany Y" />
     </div>
