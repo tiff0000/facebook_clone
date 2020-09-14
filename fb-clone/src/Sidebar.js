@@ -7,14 +7,14 @@ import ChatIcon from "@material-ui/icons/Chat";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
+import { useStateValue } from "./StateProvider";
 
 function Siderbar() {
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <div className="sidebar">
-      <SiderbarRow
-        src="https://lh3.googleusercontent.com/proxy/JliIjDjp3jQ62TYWe1vCMud_s854Wgw38A7h6ajpL8qYHlKmvV-Bv8vnGYaE2tQtxmReHwDtig8ooFxOBQrQ-ZaGy_YSMoFOglzl0ngcWYvs"
-        title="TiffanyY"
-      />
+      <SiderbarRow src={user.photoURL} title={user.displayName} />
       <SiderbarRow Icon={EmojiFlagsIcon} title="Pages" />
       <SiderbarRow Icon={PeopleIcon} title="Friends" />
       <SiderbarRow Icon={ChatIcon} title="Messenger" />
