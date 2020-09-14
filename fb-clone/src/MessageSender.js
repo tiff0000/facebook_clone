@@ -6,21 +6,20 @@ import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import { useStateValue } from "./StateProvider";
 import db from "./firebase";
-import firebase from "./firebase";
+import firebase from "firebase";
 
 function MessageSender() {
+  const [{ user }, dispatch] = useStateValue();
   const [input, setInput] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [{ user }, dispatch] = useStateValue();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // add to db when user enter new post
     db.collection("posts").add({
       message: input,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp().now(),
-      profilePic: user.photoURL,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      profilPic: user.photoURL,
       username: user.displayName,
       image: imageUrl,
     });
@@ -38,29 +37,29 @@ function MessageSender() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="messageSender__input"
-            type="text"
-            placeholder={`What's on your mind, ${user.displayName}`}
+            placeholder={`What's on your mind, ${user.displayName}?`}
           />
           <input
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-            type="text"
-            placeholder="image URL (Optional) "
+            placeholder="image URL (Optional)"
           />
           <button onClick={handleSubmit} type="submit">
-            Hidden submit
+            Hidden Submit
           </button>
         </form>
       </div>
       <div className="messageSender__bottom">
         <div className="messageSender__option">
           <VideocamIcon style={{ color: "red" }} />
-          <h3>Live video</h3>
+          <h3>Live Video</h3>
         </div>
+
         <div className="messageSender__option">
           <PhotoLibraryIcon style={{ color: "green" }} />
           <h3>Photo/Video</h3>
         </div>
+
         <div className="messageSender__option">
           <InsertEmoticonIcon style={{ color: "orange" }} />
           <h3>Feeling/Activity</h3>
