@@ -1,8 +1,6 @@
 .sidebarRow {
   display: flex;
   align-items: center;
-  /* padding-right: 150px; */
-  /* background-color: black; */
   cursor: pointer;
 }
 .sidebarRow:hover {
